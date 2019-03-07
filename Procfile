@@ -1,1 +1,1 @@
-web: gunicorn listApp.wsgi --log-file -
+web: gunicorn zillowProject.wsgi --log-file -
