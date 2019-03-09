@@ -27,7 +27,7 @@ SECRET_KEY = os.getenv('django_sicily')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['sicily.herokuapp.com']
+ALLOWED_HOSTS = ['sicily.herokuapp.com','127.0.0.1']
 
 
 # Application definition
