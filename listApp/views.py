@@ -8,13 +8,13 @@ from listApp.models import Property,PropertyImage
 # Create your views here.
 
 def home(request):
-    property = Property.objects.get(pk=1)
-    image_list = property.images.all()
-    l = Property.objects.count()
+    #property = Property.objects.get(pk=1)
+    #image_list = property.images.all()
+    #l = Property.objects.count()
     #for(i in l):
-    allObjects = Property.objects.all()   
+    #allObjects = Property.objects.all()   
 
-
+allObjects=1
 
     #print(l)
 
