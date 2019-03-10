@@ -14,7 +14,7 @@ def home(request):
     #for(i in l):
     #allObjects = Property.objects.all()   
 
-allObjects=1
+    allObjects=1
 
     #print(l)
 
