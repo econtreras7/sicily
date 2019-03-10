@@ -87,7 +87,7 @@ DATABASES = {
         'USER': config('postgres_un'),
         'PASSWORD': config('postgres_un'),
         'HOST': 'localhost',
-        'PORT': '5432',
+        'PORT': '',
     }
 } 
 
