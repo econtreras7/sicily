@@ -6,7 +6,16 @@ from django.db import models
 
 
 class Property(models.Model):
-    address = models.TextField()
+    title = models.TextField(default='Title')
+    details = models.TextField(default='details')
+    mainDetails =models.TextField(default='Main Details')
+    reference = models.TextField(default='Reference')
+    price = models.IntegerField(default=0)
+    propertyType = models.TextField(default='Property Type')
+    status= models.TextField(default='Status')
+    bedrooms = models.IntegerField(default=0)
+    propertyYoutube = models.TextField(default='YouTube Link')
+    address = models.TextField(default='Address')
 
 
 
