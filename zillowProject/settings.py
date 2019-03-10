@@ -82,7 +82,7 @@ WSGI_APPLICATION = 'zillowProject.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'postgres',
         'USER': config('postgres_un'),
         'PASSWORD': config('postgres_un'),
