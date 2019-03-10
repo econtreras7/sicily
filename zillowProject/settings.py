@@ -87,7 +87,7 @@ DATABASES = {
         'USER': config('postgres_un'),
         'PASSWORD': config('postgres_un'),
         'HOST': 'localhost',
-        'PORT': '5432',
+        'PORT': '',
     }
 } 
 
@@ -130,6 +130,7 @@ USE_TZ = True
 
 
 #AWS KEYS!!!!
+AWS_DEFAULT_ACL = None
 AWS_ACCESS_KEY_ID = config('AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = config('AWS_SECRET_ACCESS_KEY')
 AWS_STORAGE_BUCKET_NAME =config('AWS_STORAGE_BUCKET_NAME')
