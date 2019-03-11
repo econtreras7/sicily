@@ -1,23 +1,39 @@
 {% extends "listApp/layout.html" %}
+
 {%load static%}
 {% block title %}
 Home
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 {% endblock %}
+
 {% block content %}
-
-
-{%for i in propertyObjects %}
-    <h1>{{i.address}}<h1>
-
-
-
-{%endfor%}
-
+HEY
+<ul>
+{% for i in propertyObjects %}
+<li> Hey: {{ i }}</li>
+{% endfor %}
+</ul>
+BYE
 
 
 
 
 
+<!--
 <div class="card-group">
   <div class="row">
 
@@ -68,5 +84,6 @@ Home
   </div>
 </div>
 </div>
-<p>Home page!.</p>
+-->
+<p>Home page!s.</p>
 {% endblock %}
