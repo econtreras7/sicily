@@ -5,6 +5,7 @@ from datetime import datetime
 from django.shortcuts import render
 from listApp.models import Property,PropertyImage
 from django.views.generic import ListView
+#from django.views.generic import DetailView
 
 # Create your views here.
 
@@ -12,27 +13,8 @@ from django.views.generic import ListView
 class propertyList(ListView):
     model = Property
 
-
-
-
 def home(request):
-    property = Property.objects.get(pk=1)
-    image_list = property.images.all()
-    l = Property.objects.count()
-    #for(i in l):
-    propertyObjects = Property.objects.all()   
-   # Property.ob
-    #allObjects=1
-
-    print(l)
-    print(propertyObjects[1].title)
-
-
-
-    return render(request,'listApp/home.html',{
-        'propertyObjects:': propertyObjects
-
-    })
+    return render(request,'listApp/home.html')
 
 
 
