@@ -1,10 +1,52 @@
 {% extends "listApp/layout.html" %}
-
+{%load static%}
 {% block content %}
-    <h2>Publishers</h2>
-    <ul>
-        {% for publisher in object_list %}
-            <li>{{ publisher.title }}</li>
-        {% endfor %}
-    </ul>
+
+
+<h2>Properties</h2>
+<ul>
+  {% for property in object_list %}
+  <div class="col-xs-1" align="center">
+    <div class="card bg-dark text-white" style="width: 28rem;">
+      {% for propertyImage in property.images.all %}
+      {% if forloop.first %}
+
+      <!--<img class="card-img" src="{% static 'images/{{ propertyImage.image.name }}' %}" alt="Card image">-->
+      <img class="card-img" src="{{ propertyImage.image.url }}" alt="Card image">
+      <!--<h2>{{ propertyImage.image.name }}</h2>-->
+      {% endif %}
+      <!--<h2>{{ propertyImage.image.name }}</h2>-->
+      {% endfor %}
+      <div class="card-img-overlay">
+        <h5 class="card-title">{{ property.title }}</h5>
+        <p class="card-text">{{ property.id }}</p>
+        <p class="card-text"></p>
+        <a id="propertyModalButton" data-toggle="modal" href="#propertyModal" class="btn btn-primary">More Details</a>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</ul>
+
+
+<div id="propertyModal" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog"
+  aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      ...
+    </div>
+  </div>
+</div>
+
+<script>
+
+  $(document).ready(function () {
+    $("#propertyModalButton").click(function () {
+      //alert("works");
+      $("#propertyModal").modal();
+    });
+  });
+
+</script>
+
 {% endblock %}
