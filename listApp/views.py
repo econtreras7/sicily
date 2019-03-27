@@ -12,12 +12,7 @@ from django.views.generic import ListView
 
 class propertyList(ListView):
     model = Property
-
-
-
-
-
-
+    
 
 
 def home(request):
