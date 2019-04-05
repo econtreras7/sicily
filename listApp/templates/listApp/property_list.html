@@ -4,15 +4,15 @@
 
 
 <h2>Properties</h2>
-<ul>
+<div class="container">
   {% for property in object_list %}
-  <div class="col-xs-1" align="center">
+  <div class="col-xs-1" >
     <div class="card bg-dark text-white" style="width: 28rem;">
       {% for propertyImage in property.images.all %}
       {% if forloop.first %}
 
       <!--<img class="card-img" src="{% static 'images/{{ propertyImage.image.name }}' %}" alt="Card image">-->
-      <img class="card-img" src="{{ propertyImage.image.url }}" alt="Card image">
+      <img class="card-img" src="{{ propertyImage.image.url }}" alt="Card image" style="height:100%">
       <!--<h2>{{ propertyImage.image.name }}</h2>-->
       {% endif %}
       <!--<h2>{{ propertyImage.image.name }}</h2>-->
@@ -20,61 +20,83 @@
       <div class="card-img-overlay">
         <h5 class="card-title">{{ property.title }}</h5>
         <p class="card-text">{{ property.id }}</p>
-        <p class="card-text"></p>
-        <a id="propertyModalButton" data-rand="hey" data-pics={{property.images.all}} data-id={{property.id}} data-toggle="modal"
-          data-target="#propertyModal" href="#" class="btn btn-primary">More Details</a>
+        <p class="card-text"></p> 
+        <a id="propertyModalButton" data-toggle="modal" data-target="#m{{property.id}}" class="btn btn-primary">More Details</a>
+        
+        </div>
+    </div>
+  </div>
+
+  <div id="m{{property.id}}" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog"
+    aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 id="" class="modal-title">{{property.title}}</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            {% for propertyImage in property.images.all %}
+            
+            <img src="{{propertyImage.image.url}}" alt="Property Images" class="img-thumbnail">
+            
+            {% endfor %}
+            
+          <p>{{property.details}}</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary">Save changes</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
       </div>
     </div>
   </div>
   {% endfor %}
-</ul>
-
-
-<div id="propertyModal" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog"
-  aria-labelledby="myLargeModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 id="" class="modal-title">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <p>Modal body text goes here.</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary">Save changes</button>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
 </div>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <script>
+  /*
   $('#propertyModal').on('show.bs.modal', function (event) {
     var myVal = $(event.relatedTarget).data('id');
     var randVal = $(event.relatedTarget).data('rand');
     var picsVal = $(event.relatedTarget).data('pics');
-    picsVal.forEach(function (arrayItem) {
-    var x = arrayItem.prop1 + 2;
-    console.log(x);
-});
+
     alert(myVal)
     alert(randVal);
-    alert(picsVal.length);
+    alert(picsVal);
 
     //$(this).find(".modal-body").text(myVal);
   });
 
-  /*
-  
+
+
   $(document).on("click", "propertyModal", function () {
        var myBookId = $(this).data('id');
       alert( myBookId );
        //$("#propertyModal").modal();
   });
-  
+
     $(document).ready(function () {
       $("#propertyModalButton").click(function () {
         //alert("works");
@@ -87,3 +109,4 @@
 </script>
 
 {% endblock %}
+

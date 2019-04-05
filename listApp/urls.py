@@ -2,7 +2,7 @@ from django.urls import path
 from listApp import views
 from django.contrib import admin
 from listApp.views import propertyList
-urlpatterns =[
+urlpatterns = [
     path("", views.home, name="home"),
     path("home/",views.home,name ="home"),
     path("hello/<name>", views.hi,name="hi"),
