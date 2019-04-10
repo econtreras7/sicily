@@ -20,7 +20,7 @@
       {% endfor %}
       <div class="card-img-overlay">
         <h5 class="card-title">{{ property.title }}</h5>
-        <p class="card-text">{{ property.id }}</p>
+        
         <p class="card-text"></p> 
         <a id="propertyModalButton" data-toggle="modal" data-target="#m{{property.id}}" class="btn btn-primary">More Details</a>
         
@@ -38,6 +38,7 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
+        <h4>Property Images</h4> 
         <div class="modal-body">
           
             {% for propertyImage in property.images.all %}
@@ -45,11 +46,21 @@
             <img src="{{propertyImage.image.url}}" alt="Property Images" class="img-thumbnail">
             
             {% endfor %}
-            
+           <h4>Property Details</h4> 
           <p>{{property.details}}</p>
+          <h4>Property Main Details</h4> 
+          <p>{{property.mainDetails}}</p>
+
+
+          <p>Reference: <b>{{property.reference}}</b></p>
+            <p>Price: <b>{{property.price}}</b></p>
+              <p>Type: <b>{{property.propertyType}}</b></p>
+                <p>Status: <b>{{property.status}}</b></p>
+                  <p>Bedrooms: <b>{{property.bedrooms}}</b></p>
+                  <a href="{{property.propertyYoutube}}" target="_blank">See on Youtube</a>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-primary">Save changes</button>
+         <!-- <button type="button" class="btn btn-primary">Save changes</button>-->
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         </div>
       </div>
