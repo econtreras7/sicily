@@ -4,6 +4,7 @@
 
 
 <h2>Properties</h2>
+
 <div class="container">
   {% for property in object_list %}
   <div class="col-xs-1" >
@@ -38,6 +39,7 @@
           </button>
         </div>
         <div class="modal-body">
+          
             {% for propertyImage in property.images.all %}
             
             <img src="{{propertyImage.image.url}}" alt="Property Images" class="img-thumbnail">
