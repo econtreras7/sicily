@@ -93,9 +93,23 @@ WSGI_APPLICATION = 'zillowProject.wsgi.application'
 #        'PORT': '',
 #    }
 #} 
+if DEBUG:
+    DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': config('DATABASE_NAME'),
+        'USER': config('DATABASE_USER'),
+        'PASSWORD': config('DATABASE_PASSWORD'),
+        'HOST': config('DATABASE_HOST'),
+        'PORT': config('DATABASE_PORT'),
+    }
+}
+else:
+    DATABASES = { 'default': dj_database_url.config() }
 
-DATABASES = { 'default': dj_database_url.config() }
-#DATABASES = {'default': dj_database_url.config(default='postgres://postgres:postgress@localhost/postgres')}
+
+
+#DATABASES = {'default': dj_database_url.config(default='postgres://postgres:postgres@localhost/postgres')}
 
 
 # Password validation
