@@ -93,6 +93,8 @@ WSGI_APPLICATION = 'zillowProject.wsgi.application'
 #        'PORT': '',
 #    }
 #} 
+
+
 if DEBUG:
     DATABASES = {
     'default': {
@@ -104,6 +106,7 @@ if DEBUG:
         'PORT': config('DATABASE_PORT'),
     }
 }
+
 else:
     DATABASES = { 'default': dj_database_url.config() }
 

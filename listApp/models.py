@@ -19,7 +19,7 @@ class Property(models.Model):
     facebookLink = models.TextField(default='Facebook Link')
     propertyYoutube = models.TextField(default='YouTube Link')
     address = models.TextField(default='Address')
-
+    
     def __str__(self):
        return self.title
 
