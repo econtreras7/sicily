@@ -7,7 +7,7 @@
 <div class="container">
   <div class="row">
     {% for property in object_list %}
-      <div class="shadow card" style="width:30rem;">
+      <div class="shadow card" style="width:30rem; transition: height 0.3s,box-shadow 0.3s">
         {% for propertyImage in property.images.all %}
         {% if forloop.first %}
         <img class="card-img-top" src="{{ propertyImage.image.url }}" alt="Card image"
