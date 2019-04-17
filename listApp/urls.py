@@ -9,5 +9,6 @@ urlpatterns = [
     path("Hello/<name>", views.hi, name="hi"),
     path("properties/",propertyList.as_view()),
     path("about/", views.about,name="about"),
-    path("contact/", views.contact,name="contact")
+    path("contact/", views.contact,name="contact"),
+    path("success/", views.successView,name="success")
 ]
