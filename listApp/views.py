@@ -42,8 +42,8 @@ def contact(request):
                 send_mail(subject, message, from_email, [config('EMAIL_RECIPIENT')])
             except BadHeaderError:
                 return HttpResponse('Invalid header found.')
-            messages.info(request,'Success Your Email has been sent!')
-            return redirect('home')
+            messages.success(request,'Success Your Email has been sent!')
+            #return HttpResponseRedirect('')
     return render(request, "listApp/contact.html", {'form': form})
 
 def successView(request):

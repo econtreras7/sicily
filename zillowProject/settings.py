@@ -158,15 +158,16 @@ USE_TZ = True
 #AWS KEYS!!!!
 
 if DEBUG:
-    EMAIL_HOST = 'smtp.sendgrid.net'
-    EMAIL_HOST_USER = config('EMAIL_HOST_USER')
-    EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
-    EMAIL_PORT = 587
-    EMAIL_USE_TLS = True
+    #EMAIL_HOST = 'smtp.sendgrid.net'
+    #EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+    #EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+    #EMAIL_PORT = 587
+    #EMAIL_USE_TLS = True
 
     STATIC_URL = '/static/'
     MEDIA_URL='/media/'
     MEDIA_ROOT = os.path.join(BASE_DIR,'media')
+    STATIC_ROOT = os.path.join(BASE_DIR, 'static_collected')
 else:
     EMAIL_HOST = 'smtp.sendgrid.net'
     EMAIL_HOST_USER = config('EMAIL_HOST_USER')
@@ -197,4 +198,4 @@ else:
     MEDIA_URL='/media/'
     MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 
-#EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
