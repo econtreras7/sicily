@@ -165,9 +165,9 @@ if DEBUG:
     #EMAIL_USE_TLS = True
 
     STATIC_URL = '/static/'
-    MEDIA_URL='/media/'
-    MEDIA_ROOT = os.path.join(BASE_DIR,'media')
     STATIC_ROOT = os.path.join(BASE_DIR, 'static_collected')
+    #MEDIA_URL='/media/'
+    #MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 else:
     EMAIL_HOST = 'smtp.sendgrid.net'
     EMAIL_HOST_USER = config('EMAIL_HOST_USER')
@@ -188,14 +188,15 @@ else:
     STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 
-    STATIC_ROOT = os.path.join(BASE_DIR, 'static_collected')
+    
 
-    STATICFILES_DIRS = [
-        os.path.join(BASE_DIR, 'listApp/static'),
-    ]
+   
 
     DEFAULT_FILE_STORAGE = 'zillowProject.storage_backends.MediaStorage'
-    MEDIA_URL='/media/'
-    MEDIA_ROOT = os.path.join(BASE_DIR,'media')
-
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+    #MEDIA_URL='/media/'
+STATICFILES_DIRS = [
+        os.path.join(BASE_DIR, 'listApp/static'),
+    ]    
+MEDIA_URL='/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR,'media')
+#EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
