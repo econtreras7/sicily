@@ -9,6 +9,7 @@ from django.views.generic import ListView
 from .forms import ContactForm
 from django.core.mail import send_mail, BadHeaderError
 from django.contrib import messages
+from decouple import config
 #from django.views.generic import DetailView
 
 # Create your views here.
@@ -38,7 +39,7 @@ def contact(request):
             from_email = form.cleaned_data['from_email']
             message = form.cleaned_data['message']
             try:
-                send_mail(subject, message, from_email, ['admin@example.com'])
+                send_mail(subject, message, from_email, [config('EMAIL_RECIPIENT')])
             except BadHeaderError:
                 return HttpResponse('Invalid header found.')
             messages.info(request,'Success Your Email has been sent!')
