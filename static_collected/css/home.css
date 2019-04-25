@@ -1,7 +1,7 @@
 .masthead {
     height: 45vh;
     min-height: 300px;
-    background-image: url('/static/WebImages/home_banner.jpg');
+    background-image: url('https://s3-us-west-2.amazonaws.com/django-static-sicily/static/WebImages/home_banner.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

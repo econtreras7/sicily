@@ -151,10 +151,6 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
-
-
-
-
 #AWS KEYS!!!!
 
 if DEBUG:
@@ -163,39 +159,29 @@ if DEBUG:
     #EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
     #EMAIL_PORT = 587
     #EMAIL_USE_TLS = True
-
     STATIC_URL = '/static/'
     STATIC_ROOT = os.path.join(BASE_DIR, 'static_collected')
-    #MEDIA_URL='/media/'
-    #MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 else:
     EMAIL_HOST = 'smtp.sendgrid.net'
     EMAIL_HOST_USER = config('EMAIL_HOST_USER')
     EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
     EMAIL_PORT = 587
     EMAIL_USE_TLS = True
-    AWS_DEFAULT_ACL = None
     AWS_ACCESS_KEY_ID = config('AWS_ACCESS_KEY_ID')
     AWS_SECRET_ACCESS_KEY = config('AWS_SECRET_ACCESS_KEY')
     AWS_STORAGE_BUCKET_NAME =config('AWS_STORAGE_BUCKET_NAME')
     AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
     AWS_S3_OBJECT_PARAMETERS = {
-    #'CacheControl': 'max-age=35',
+        #'CacheControl': 'max-age=35',
     }
     AWS_LOCATION = 'static'
     STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
-
     STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-
-
-    
-
-   
-
+    STATIC_ROOT = os.path.join(BASE_DIR, 'static_collected')
     DEFAULT_FILE_STORAGE = 'zillowProject.storage_backends.MediaStorage'
     #MEDIA_URL='/media/'
-STATICFILES_DIRS = [
-        os.path.join(BASE_DIR, 'listApp/static'),
+    STATICFILES_DIRS = [
+        os.path.join(BASE_DIR, 'static'),
     ]    
 MEDIA_URL='/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')
