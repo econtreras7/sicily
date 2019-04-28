@@ -21,10 +21,14 @@ class propertyList(ListView):
 
 
 def home(request):
-    return render(request,'listApp/home.html')
+    featured_list = Property.objects.all()
 
 
+    return render(request,'listApp/home.html',{'featured':featured_list})
 
+
+def gallery(request):
+    return render(request,'listApp/gallery.html')
     
 def about(request):
     return render(request, "listApp/about.html")

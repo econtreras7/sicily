@@ -6,6 +6,7 @@ from django.db import models
 
 
 class Property(models.Model):
+    featured = models.BooleanField(default=False)
     title = models.TextField(default='Title')
     details = models.TextField(default='Details')
     mainDetails =models.TextField(default='Main Details')
