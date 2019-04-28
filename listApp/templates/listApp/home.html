@@ -9,166 +9,154 @@ Home
 <!--<link href="{% static 'listApp/css/home.css' %}" rel="stylesheet">-->
 <link href="{% static 'css/home.css' %}" rel="stylesheet">
 <header class="masthead">
-    <div class="container h-100">
-      <div class="row h-100 align-items-center">
-        <div class="col-12 text-center">
-          <h1 class="font-weight-light">Sicily Property Management Brokers</h1>
-          <p class="lead">Quality renovated homes</p>
-        </div>
+  <div class="container h-100">
+    <div class="row h-100 align-items-center">
+      <div class="col-12 text-center">
+        <h1 class="font-weight-light">Sicily Property Management Brokers</h1>
+        <p class="lead">Quality renovated homes</p>
       </div>
     </div>
-  </header>
+  </div>
+</header>
 
 
-  <section id="whoweare">
-  <div  class="container">
-     <div class="row">
-       <div class="col-lg-12 text-center">
-          <h1 class="section-heading">Who we are? What we do?</h1>
-       </div>
-     </div>
-     <div class="row text-center">
-        <div class="col-md-4">
-            <span class="fa-stack fa-4x">
-              <i class="fas fa-circle fa-stack-2x text-primary"></i>
-              <i class="fas fa-globe-europe fa-stack-1x fa-inverse"></i>
-            </span>
-            <h4 class="service-heading">Acquisition</h4>
-            <p class="text-muted">Maybe a Description</p>
-            <button type="button" class="btn btn-primary">More Details</button>
-
-          </div>
-          <div class="col-md-4">
-              <span class="fa-stack fa-4x">
-                <i class="fas fa-circle fa-stack-2x text-primary"></i>
-                <i class="fas fa-globe-europe fa-stack-1x fa-inverse"></i>
-              </span>
-              <h4 class="service-heading">Renovation</h4>
-              <p class="text-muted">There etworks</p>
-              <button type="button" class="btn btn-primary">More Details</button>
-            </div>
-            <div class="col-md-4">
-                <span class="fa-stack fa-4x">
-                  <i class="fas fa-circle fa-stack-2x text-primary"></i>
-                  <i class="fas fa-globe-europe fa-stack-1x fa-inverse"></i>
-                </span>
-                <h4 class="service-heading">Management</h4>
-                <p class="text-muted">There is nothing more important than standing out in a group of businesses. Let Sol Digital Studios help you stand out. With our knowledge of web based algorithms we can make sure that we create a strategy that will help you stand out on Google, Facebook, Instagram and other major social networks</p>
-                <button type="button" class="btn btn-primary">More Details</button>
-              </div>
-      </div>
-    </div>
-    </section>    
- <section id="whereWeAre">
-   <div class="container">
+<section id="whoweare">
+  <div class="container">
     <div class="row">
-        <div class="col-lg-12 text-center">
-           <h1 class="section-heading text-uppercase">Where we are</h1>
+      <div class="col-lg-12 text-center">
+        <h1 class="section-heading">Who we are? What we do?</h1>
+      </div>
+    </div>
+    <div class="row text-center">
+      <div class="col-md-4">
+        <span class="fa-stack fa-4x">
+          <i class="fas fa-circle fa-stack-2x text-primary"></i>
+          <i class="fas fa-globe-europe fa-stack-1x fa-inverse"></i>
+        </span>
+        <h4 class="service-heading">Acquisition</h4>
+        <p class="text-muted">Maybe a Description</p>
+        <a href="/acquisition" class="btn btn-primary stretched-link">More Details</a>
+
+      </div>
+      <div class="col-md-4">
+        <span class="fa-stack fa-4x">
+          <i class="fas fa-circle fa-stack-2x text-primary"></i>
+          <i class="fas fa-globe-europe fa-stack-1x fa-inverse"></i>
+        </span>
+        <h4 class="service-heading">Renovation</h4>
+        <p class="text-muted">There etworks</p>
+        <a href="/renovation" class="btn btn-primary stretched-link">More Details</a>
+      </div>
+      <div class="col-md-4">
+        <span class="fa-stack fa-4x">
+          <i class="fas fa-circle fa-stack-2x text-primary"></i>
+          <i class="fas fa-globe-europe fa-stack-1x fa-inverse"></i>
+        </span>
+        <h4 class="service-heading">Management</h4>
+        <p class="text-muted">There is nothing more important than standing out in a group of businesses. Let Sol
+          Digital Studios help you stand out. With our knowledge of web based algorithms we can make sure that we create
+          a strategy that will help you stand out on Google, Facebook, Instagram and other major social networks</p>
+        <a href="/management" class="btn btn-primary stretched-link">More Details</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section id="whereWeAre">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h1 class="section-heading text-uppercase">Where we are</h1>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <iframe width="600" height="450" frameborder="1" style="border:0"
+        src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJs1lT0GhiEBMRUH22ZykECwE&key=AIzaSyDQZNi6DdrZS36FjjujiL-zcC5elmyMork"
+        allowfullscreen></iframe>
+    </div>
+  </div>
+</section>
+
+
+<section id="featuredProperties">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h1 class="section-heading text-uppercase">Featured Properties</h1>
+      </div>
+    </div>
+    <div class="row">
+      {% for property in object_list %}
+      <div class="shadow card" style="width:30rem;">
+        {% for propertyImage in property.images.all %}
+        {% if forloop.first %}
+        <img class="card-img-top" src="{{ propertyImage.image.url }}" alt="Card image"
+          style="height:300px;  display: inline-block;">
+        {% endif %}
+        {% endfor %}
+        <div class="card-body">
+          <h5 class="card-title">{{ property.title }}</h5>
+          <p class="card-text"></p>
+          <button id="propertyModalButton" data-toggle="modal" data-target="#m{{property.id}}"
+            class="btn btn-primary">More
+            Details</button>
         </div>
       </div>
-      <div class="row justify-content-center">
-          
-          <iframe  width="600" height="450" frameborder="1" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJs1lT0GhiEBMRUH22ZykECwE&key=AIzaSyDQZNi6DdrZS36FjjujiL-zcC5elmyMork" allowfullscreen></iframe>
-
-        </div>
-    </div>
-
- </section>
-<section id="featuredProperties">
-  <div class="container"> 
-      <div class="row">
-          <div class="col-lg-12 text-center">
-             <h1 class="section-heading text-uppercase">Featured Properties</h1>
-          </div>
-        </div>
-        <div class="row">
-            
-            {% for property in object_list %}
-            
-            <div class="shadow card" style="width:30rem;">
-              {% for propertyImage in property.images.all %}
-              {% if forloop.first %}
-              <img class="card-img-top" src="{{ propertyImage.image.url }}" alt="Card image"
-                style="height:300px;  display: inline-block;">
-              {% endif %}
-              {% endfor %}
-              <div class="card-body">
-                <h5 class="card-title">{{ property.title }}</h5>
-                <p class="card-text"></p>
-                <button id="propertyModalButton" data-toggle="modal" data-target="#m{{property.id}}"
-                  class="btn btn-primary">More
-                  Details</button>
-              </div>
+      <div id="m{{property.id}}" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog"
+        aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 id="" class="modal-title">{{property.title}}</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
             </div>
-            <div id="m{{property.id}}" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog"
-              aria-labelledby="myLargeModalLabel" aria-hidden="true">
-              <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 id="" class="modal-title">{{property.title}}</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-                  <div class="modal-body row">
-                    <div class="col-md-6">
-                      <div class="image-row">
-                        <div class="image-set">
-                          <h4>Property Images</h4>
-                          {% for propertyImage in property.images.all %}
-                          <a href="{{propertyImage.image.url}}" data-lightbox="{{property.title}}" style="max-height:1000; ">
-                            <img src="{{propertyImage.image.url}}" class="img-fluid rounded"
-                              style="height:70px; overflow: hidden;">
-                          </a>
-                          {% endfor %}
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-md-6">
-                      <h4>Property Details</h4>
-                      <p>{{property.details}}</p>
-                      <h4>Property Main Details</h4>
-                      <p>{{property.mainDetails}}</p>
-                      <p>Reference: <b>{{property.reference}}</b></p>
-                      <p>Price: <b>{{property.price}}</b></p>
-                      <p>Type: <b>{{property.propertyType}}</b></p>
-                      <p>Status: <b>{{property.status}}</b></p>
-                      <p>Bedrooms: <b>{{property.bedrooms}}</b></p>
-                      <a href="{{property.propertyYoutube}}" target="_blank">See on Youtube</a>
-                    </div>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <div class="modal-body row">
+              <div class="col-md-6">
+                <div class="image-row">
+                  <div class="image-set">
+                    <h4>Property Images</h4>
+                    {% for propertyImage in property.images.all %}
+                    <a href="{{propertyImage.image.url}}" data-lightbox="{{property.title}}" style="max-height:1000; ">
+                      <img src="{{propertyImage.image.url}}" class="img-fluid rounded"
+                        style="height:70px; overflow: hidden;">
+                    </a>
+                    {% endfor %}
                   </div>
                 </div>
               </div>
+              <div class="col-md-6">
+                <h4>Property Details</h4>
+                <p>{{property.details}}</p>
+                <h4>Property Main Details</h4>
+                <p>{{property.mainDetails}}</p>
+                <p>Reference: <b>{{property.reference}}</b></p>
+                <p>Price: <b>{{property.price}}</b></p>
+                <p>Type: <b>{{property.propertyType}}</b></p>
+                <p>Status: <b>{{property.status}}</b></p>
+                <p>Bedrooms: <b>{{property.bedrooms}}</b></p>
+                <a href="{{property.propertyYoutube}}" target="_blank">See on Youtube</a>
+              </div>
             </div>
-            {% endfor %}
-
-
-
-
-
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
           </div>
-
-
-
-
-
+        </div>
+      </div>
+      {% endfor %}
+    </div>
 </section>
+
+
 <section id="whySicily">
-    <div class="container"> 
-        <div class="row">
-            <div class="col-lg-12 text-center">
-               <h1 class="section-heading text-uppercase">Why Sicily?</h1>
-            </div>
-          </div>
-          
-  
-  
-  
-  
-  
-  
-  </section>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h1 class="section-heading text-uppercase">Why Sicily?</h1>
+      </div>
+    </div>
+</section>
 {% endblock %}

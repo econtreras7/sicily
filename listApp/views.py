@@ -29,6 +29,8 @@ def home(request):
 
 def gallery(request):
     return render(request,'listApp/gallery.html')
+def acquisition(request):
+    return render(request,'listApp/acquisition.html')
     
 def about(request):
     return render(request, "listApp/about.html")
