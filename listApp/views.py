@@ -29,9 +29,11 @@ def home(request):
 
 def gallery(request):
     return render(request,'listApp/gallery.html')
-def acquisition(request):
-    return render(request,'listApp/acquisition.html')
+def process(request):
+    return render(request,'listApp/process.html')
     
+def aboutSicily(request):
+    return render(request, "listApp/aboutSicily.html")
 def about(request):
     return render(request, "listApp/about.html")
 
