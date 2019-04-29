@@ -1,0 +1,15 @@
+.first-column {
+    width: 40%;
+    float: left;
+  }
+  
+  .second-column {
+    width: 40%;
+    float: right;
+  }
+
+  .cButton{
+    position: fixed;
+    right:    10px;
+    bottom:   10px;
+  }
