@@ -6,7 +6,7 @@ from django.db import models
 
 
 class Property(models.Model):
-    featured = models.BooleanField(default=False)
+    
     title = models.TextField(default='Title')
     details = models.TextField(default='Details')
     mainDetails =models.TextField(default='Main Details')
@@ -20,6 +20,7 @@ class Property(models.Model):
     facebookLink = models.TextField(default='Facebook Link')
     propertyYoutube = models.TextField(default='YouTube Link')
     address = models.TextField(default='Address')
+    featured = models.BooleanField(default=False)
     
     def __str__(self):
        return self.title
@@ -27,7 +28,4 @@ class Property(models.Model):
 class PropertyImage(models.Model):
     property = models.ForeignKey(Property, related_name='images',on_delete=models.CASCADE)
     image = models.ImageField()
-    def image_tag(self):
-        # used in the admin site model as a "thumbnail"
-        return mark_safe('<img src="{}" width="150" height="150" />'.format(self.url()) )
-    image_tag.short_description = 'Image'
+    

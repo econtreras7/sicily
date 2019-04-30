@@ -72,7 +72,10 @@ def hi(request,name):
         }
     )
 
-
+def handler404(request):
+    return render(request, 'listApp/404.html',{}, status=404)
+def handler500(request):
+    return render(request, 'listApp/500.html',{})
 
 
 
