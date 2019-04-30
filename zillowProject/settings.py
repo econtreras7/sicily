@@ -158,16 +158,10 @@ USE_TZ = True
 #AWS KEYS!!!!
 
 if DEBUG:
-    #EMAIL_HOST = 'smtp.sendgrid.net'
-    #EMAIL_HOST_USER = config('EMAIL_HOST_USER')
-    #EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
-    #EMAIL_PORT = 587
-    #EMAIL_USE_TLS = True
 
     STATIC_URL = '/static/'
     STATIC_ROOT = os.path.join(BASE_DIR, 'static_collected')
-    #MEDIA_URL='/media/'
-    #MEDIA_ROOT = os.path.join(BASE_DIR,'media')
+    
 else:
     EMAIL_HOST = 'smtp.sendgrid.net'
     EMAIL_HOST_USER = config('EMAIL_HOST_USER')
@@ -186,12 +180,6 @@ else:
     STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
 
     STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-
-
-    
-
-   
-
     DEFAULT_FILE_STORAGE = 'zillowProject.storage_backends.MediaStorage'
     #MEDIA_URL='/media/'
 STATICFILES_DIRS = [
