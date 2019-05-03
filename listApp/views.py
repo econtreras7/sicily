@@ -10,19 +10,38 @@ from .forms import ContactForm
 from django.core.mail import send_mail, BadHeaderError
 from django.contrib import messages
 from decouple import config
+from .filters import propertyFilter
 #from django.views.generic import DetailView
 
 # Create your views here.
 
 
-class propertyList(ListView):
-    model = Property
+#class propertyList(ListView):
+#    template_name = 'listApp/propertyList.html'
+#    model = Property
+
+
+def propertyList(request):
+    
+    property_list = Property.objects.all()
+    property_filter = propertyFilter(request.GET,queryset=property_list)
+    return render(request,'listApp/property_list.html',{'filter':property_filter})
+
+
+
+
     
 
 
 def home(request):
-    featured_list = Property.objects.all()
+    featured_list = Property.objects.filter(featured=True)
 
+    def get_queryset(self):
+        query = self.request.GET.get('mainSearch')
+        if query:
+            results =  Property.objects.filter(title__icontains=query)
+            print(results)
+            return redirect(request,'listApp/propertylist.html',{'object_list':results})
 
     return render(request,'listApp/home.html',{'featured':featured_list})
 

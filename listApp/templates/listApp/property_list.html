@@ -1,32 +1,56 @@
 {% extends "listApp/layout.html" %}
 {%load static%}
-
+{% load mathfilters %}
+{% load widget_tweaks %}
 {% block content %}
 
 <div class="container">
-    <div class="row">
-        <div class="col-md-6 col-sm">
-      {% for property in object_list %}
-      <div class="shadow card" style="width:30rem;">
-        {% for propertyImage in property.images.all %}
-        {% if forloop.first %}
-        <img class="card-img-top" src="{{ propertyImage.image.url }}" alt="Card image"
-          style="height:300px;  display: inline-block;">
-        {% endif %}
-        {% endfor %}
-        <div class="card-body">
-          <h5 class="card-title">{{ property.title }}</h5>
-          <p class="card-text"></p>
-          <button id="propertyModalButton" data-toggle="modal" data-target="#m{{property.id}}"
-            class="btn btn-primary">More
-            Details</button>
+
+  <form method="GET" action=''>
+
+      <div class="form-group col-sm-4 col-md-3">
+        
+          {% render_field filter.form.title class="form-control" placeholder="Search Properties" size="70" %}
         </div>
-      </div>
+        <button type="submit" class="btn btn-primary">
+            <span class="glyphicon glyphicon-search"></span> Search
+          </button>
+
+       
+
+
+  </form>
+  
+  
+  
+  <div class="row">
+      {% for property in filter.qs %}
+    <div class="col-md-6 col-sm">
+      
+      <a id="propertyModalButton" class="stretched-link" data-toggle="modal" data-target="#m{{property.id}}">
+        <div class="card shadow-lg p-3 mb-5 bg-white rounded">
+
+
+          {% for propertyImage in property.images.all %}
+          {% if forloop.first %}
+
+          <img class="card-img-top" src="{{ propertyImage.image.url }}" alt="Card image"
+            style="height:300px;  display: inline-block;">
+          {% endif %}
+          {% endfor %}
+          <div class="card-body">
+            <h5 class="card-title">{{ property.propertyStatus }}</h5>
+            <h4 class="card-title"><b>{{ property.price }}</b></h4>
+            <p>•{{ property.bedrooms }}bds • {{ property.bathrooms }}ba • {{ property.sqmt }}sqmt</p>
+          </div>
+        </div>
+      </a>
       <div id="m{{property.id}}" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog"
         aria-labelledby="myLargeModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
           <div class="modal-content">
             <div class="modal-header">
+
               <h5 id="" class="modal-title">{{property.title}}</h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
@@ -38,9 +62,16 @@
                   <div class="image-set">
                     <h4>Property Images</h4>
                     {% for propertyImage in property.images.all %}
-                    <a href="{{propertyImage.image.url}}" data-lightbox="{{property.title}}" style="max-height:1000; ">
+                    {% if forloop.first %}
+                    <a href="{{propertyImage.image.url}}" data-lightbox="{{property.title}}" style="max-height:100%; ">
+                        <img src="{{propertyImage.image.url}}" class="img-fluid rounded"
+                          style="border: 5px; margin: 10px; height:270px; overflow: hidden;">
+                      </a>
+
+                    {% endif %}
+                    <a href="{{propertyImage.image.url}}" data-lightbox="{{property.title}}" style="max-height:100%; ">
                       <img src="{{propertyImage.image.url}}" class="img-fluid rounded"
-                        style="height:70px; overflow: hidden;">
+                        style="border: 5px; margin: 10px; height:120px; overflow: hidden;">
                     </a>
                     {% endfor %}
                   </div>
@@ -65,9 +96,15 @@
           </div>
         </div>
       </div>
-      {% endfor %}
+      
+
     </div>
-    </div>
+    {% endfor %}
   </div>
+
+
+
+</div>
+
 
 {% endblock %}

@@ -8,15 +8,19 @@ Home
 {% block content %}
 <!--<link href="{% static 'listApp/css/home.css' %}" rel="stylesheet">-->
 <link href="{% static 'css/home.css' %}" rel="stylesheet">
+
 <header class="masthead">
   <div class="container h-100">
     <div class="row h-100 align-items-center">
       <div class="col-12 text-center">
-          <div class="input-group mb-3">
-              <input type="text" class="form-control" placeholder="Search Our Properties" aria-label="Recipient's username" aria-describedby="basic-addon2">
+          <div class="input-group mb-3 justify-content-center">
+            <form method="GET" action="" id="homeSearchForm">
+              <input size="70" type="text" name="mainSearch" value="{{request.GET.mainSearch}}" class="form-control" placeholder="Search Our Properties" aria-label="Recipient's username" aria-describedby="basic-addon2">
+            </form>
               <div class="input-group-append">
                 <button class="btn btn-primary" type="button">Search</button>
               </div>
+              
             </div>
       </div>
     </div>
@@ -33,9 +37,9 @@ Home
     </div>
     <div class="row text-center">
       <div class="col-md-4">
-        <span class="fa-stack fa-4x">
-          <i class="fas fa-circle fa-stack-2x text-primary"></i>
-          <i class="fas fa-globe-europe fa-stack-1x fa-inverse"></i>
+        <span class="fa-stack fa-4x" >
+          <i class="fas fa-circle fa-stack-2x text-primary" ></i>
+          <i class="fas fa-globe-europe fa-stack-1x fa-inverse" ></i>
         </span>
         <h4 class="service-heading">Acquisition</h4>
         <p class="text-muted">Maybe a Description</p>
@@ -92,11 +96,11 @@ Home
     </div>
     <div class="row">
       {% for property in featured %}
-      <div class="shadow card" style="width:30rem;">
+      <div class="shadow card" >
         {% for propertyImage in property.images.all %}
         {% if forloop.first %}
         <img class="card-img-top" src="{{ propertyImage.image.url }}" alt="Card image"
-          style="height:300px;  display: inline-block;">
+          >
         {% endif %}
         {% endfor %}
         <div class="card-body">
