@@ -16,5 +16,5 @@ urlpatterns = [
     path("gallery/", views.gallery,name="gallery"),
     path("process/", views.process,name="process"),
     path("aboutSicily/", views.aboutSicily,name="aboutSicily"),
-     url(r'^propertyList/$', views.propertyList, name='propertyList'),
+     url(r'^properties/$', views.propertyList, name='propertyList'),
 ]
