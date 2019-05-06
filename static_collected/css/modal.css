@@ -13,3 +13,14 @@
     right:    10px;
     bottom:   10px;
   }
+  .layoutBody {
+    background-color:#edece3 
+  }
+
+  .clickable {
+    cursor: pointer;
+  }
+  a.property-modal-card-link,
+  a.property-modal-card-link:hover{
+    color:inherit;
+  }
