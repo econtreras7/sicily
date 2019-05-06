@@ -5,23 +5,17 @@
 {% block content %}
 
 <div class="container">
-
+  <div class="">
   <form method="GET" action=''>
-
-      <div class="form-group col-sm-4 col-md-3">
-        
-          {% render_field filter.form.title class="form-control" placeholder="Search Properties" size="70" %}
-        </div>
-        <button type="submit" class="btn btn-primary">
-            <span class="glyphicon glyphicon-search"></span> Search
-          </button>
-
-       
-
-
+      <div class="form-group col-md-4 justify-content-center">
+          <div class="row">
+          {% render_field filter.form.title class="form-control" placeholder="Search Properties" size="700" %}
+          </div>
+          
+      </div>
   </form>
-  
-  
+</div>
+   
   
   <div class="row">
       {% for property in filter.qs %}
