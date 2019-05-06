@@ -20,3 +20,7 @@
   .clickable {
     cursor: pointer;
   }
+  a.property-modal-card-link,
+  a.property-modal-card-link:hover{
+    color:inherit;
+  }
