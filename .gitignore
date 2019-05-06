@@ -71,6 +71,6 @@ static_collected/
 
 
 
-
+.vscode
 .env
 db.sqlite3
