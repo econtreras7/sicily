@@ -26,6 +26,22 @@
 *.sql
 *.sqlite
 
+# Distribution / packaging
+.Python
+env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
 # OS generated files #
 ######################
 .DS_Store
@@ -41,3 +57,15 @@ yo.txt
 picfolder/
 media/
 .env
+
+
+
+### Django ###
+*.log
+*.pot
+*.pyc
+__pycache__/
+local_settings.py
+
+.env
+db.sqlite3
