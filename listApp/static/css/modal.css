@@ -16,3 +16,7 @@
   .layoutBody {
     background-color:#edece3 
   }
+
+  .clickable {
+    cursor: pointer;
+  }
