@@ -66,6 +66,11 @@ media/
 *.pyc
 __pycache__/
 local_settings.py
+static_collected/
+
+
+
+
 
 .env
 db.sqlite3
