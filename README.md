@@ -1,6 +1,6 @@
 # Real Estate Site Manager
 
-Simple web application that enables the user to create and host a basic webapp in heroku. Has the ability to add Real Estate listings thorugh the admin page.
+Basic Real Estate web application that enables user to create listings throught the admin page in django. 
 
 ## Database
 
