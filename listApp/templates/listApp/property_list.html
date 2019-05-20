@@ -4,17 +4,20 @@
 {% load widget_tweaks %}
 {% block content %}
 
-<div class="container clearfix">
-  <div class="">
+
+
+
+<div class="container header-marginPropertyList" >
+  
   <form method="GET" action=''>
-      <div class="form-group col-md-4 justify-content-center">
-          <div class="row">
+      <div class="form-group col-md-4 ">
+          <div class="row justify-content-center">
           {% render_field filter.form.title class="form-control" placeholder="Search Properties" size="700" %}
           </div>
           
       </div>
   </form>
-</div>
+
    
   
   <div class="row">
@@ -51,7 +54,7 @@
               </button>
             </div>
             <div class="modal-body row">
-              <div class="col-md-6">
+              <div class="col-md-8 border-right">
                 <div class="image-row">
                   <div class="image-set">
                     <h4>Property Images</h4>
@@ -71,7 +74,7 @@
                   </div>
                 </div>
               </div>
-              <div class="col-md-6">
+              <div class="col-md-4">
                 <h4>Property Details</h4>
                 <p>{{property.details}}</p>
                 <h4>Property Main Details</h4>
