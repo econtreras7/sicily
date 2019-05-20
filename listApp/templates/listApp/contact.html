@@ -1,4 +1,5 @@
 {% extends "listApp/layout.html" %}
+{% load crispy_forms_tags %}
 {% block title %}
 Contact Us
 {% endblock %}
@@ -14,9 +15,10 @@ Contact Us
 {% endif %}
 <form method="post">
     {% csrf_token %}
-    {{ form.as_p }}
+    {{form|crispy}}
+
     <div class="form-actions">
-      <button type="submit">Send</button>
+      <button type="submit" class="btn btn-primary">Send</button>
     </div>
 </form>
 
