@@ -74,3 +74,6 @@ static_collected/
 .vscode
 .env
 db.sqlite3
+listApp/__pycache__/views.cpython-37.pyc
+listApp/__pycache__/urls.cpython-37.pyc
+listApp/__pycache__/forms.cpython-37.pyc
