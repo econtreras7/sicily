@@ -1,0 +1,15 @@
+.header-margin{
+    margin-top: 65px;
+  }
+  .header-marginPropertyList{    
+    margin-top: 85px;
+  }
+  .section-spacing{
+    border-top: 10px black !important;
+    margin-top: 70px;
+  }
+
+  .btn.btn-primary{
+    color: black;
+    background: #e3b23c;
+  }
