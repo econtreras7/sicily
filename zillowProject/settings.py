@@ -51,6 +51,8 @@ INSTALLED_APPS = [
     'django_filters',
     'widget_tweaks',
     'crispy_forms',
+    #'sendgrid_backend',
+
 ]
 
 CRISPY_TEMPLATE_PACK='bootstrap4'
@@ -169,10 +171,13 @@ if DEBUG:
     STATIC_ROOT = os.path.join(BASE_DIR, 'static_collected')
     
 else:
-    EMAIL_HOST = 'smtp.sendgrid.net'
-    EMAIL_HOST_USER = config('EMAIL_HOST_USER')
-    EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
-    EMAIL_PORT = 587
+    EMAIL_BACKEND = "sgbackend.SendGridBackend"
+    
+    #EMAIL_HOST = 'smtp.sendgrid.net'
+    #EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+    #EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+    #EMAIL_PORT = 587
+    SENDGRID_API_KEY = config('SENDGRID_API_KEY')
     EMAIL_USE_TLS = True
     AWS_DEFAULT_ACL = None
     AWS_ACCESS_KEY_ID = config('AWS_ACCESS_KEY_ID')

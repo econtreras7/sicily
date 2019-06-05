@@ -34,16 +34,33 @@ def propertyList(request):
 
 
 def home(request):
-    featured_list = Property.objects.filter(featured=True)
 
+    featured_list = Property.objects.filter(featured=True)
+    if request.method == 'GET':
+            form = ContactForm()
+            print("GETTTTTTHOME")
+    else:
+        form = ContactForm(request.POST)
+        print("POSTHOME")
+        if form.is_valid():
+            subject = form.cleaned_data['subject']
+            from_email = form.cleaned_data['from_email']
+            message = form.cleaned_data['message']
+            print("home: " + subject +' '+from_email+' '+ message)
+            try:
+                send_mail(subject, message, from_email, [config('EMAIL_RECIPIENT')])
+                
+            except BadHeaderError:
+                return HttpResponse('Invalid header found.')
+            messages.success(request,'Success Your Email has been sent!')
     def get_queryset(self):
         query = self.request.GET.get('mainSearch')
         if query:
             results =  Property.objects.filter(title__icontains=query)
             print(results)
-            return redirect(request,'listApp/propertylist.html',{'object_list':results})
+            return redirect(request,'listApp/propertylist.html',{'filter':results})
 
-    return render(request,'listApp/home.html',{'featured':featured_list})
+    return render(request,'listApp/home.html',{'featured':featured_list},{'form': form})
 
 
 def gallery(request):
@@ -62,15 +79,17 @@ def contact(request):
     else:
         form = ContactForm(request.POST)
         if form.is_valid():
+          #  name = form.cleaned_data['name']
             subject = form.cleaned_data['subject']
             from_email = form.cleaned_data['from_email']
             message = form.cleaned_data['message']
+            print("home: " + subject +' '+from_email+' '+ message)
             try:
                 send_mail(subject, message, from_email, [config('EMAIL_RECIPIENT')])
+                #messages.success(request,'Success Your Email has been sent!')
             except BadHeaderError:
                 return HttpResponse('Invalid header found.')
-            messages.success(request,'Success Your Email has been sent!')
-            #return HttpResponseRedirect('')
+            messages.success(request,'Success Your Email has been sent!')#return redirect('success')
     return render(request, "listApp/contact.html", {'form': form})
 
 def successView(request):
