@@ -39,8 +39,13 @@ def home(request):
     if request.method == 'GET':
             form = ContactForm()
             print("GETTTTTTHOME")
-    else:
+    elif request.method == 'POST':
+
+        
+
+
         form = ContactForm(request.POST)
+        #print(form.cleaned_data['subject'])
         print("POSTHOME")
         if form.is_valid():
             subject = form.cleaned_data['subject']
@@ -94,11 +99,22 @@ def contact(request):
 
 def successView(request):
     return HttpResponse('Success! Thank you for your message.')
+def contactPopup(request):
+    #form = ContactForm()
+   # print('ERROR: ',form.errors)
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        print('ERROR: ',form.errors)
+        if form.is_valid():
+            print('VALID')
+
+        print('postingjndkjnsc')
+        return HttpResponse('POST')
+    else:
+        return HttpResponse('Success! Thank you for your message.') 
 
 
 
-
-    
 
 def hi(request,name):
      return render(

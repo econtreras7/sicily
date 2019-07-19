@@ -71,11 +71,14 @@
       </ul>
     </div>
   </nav>
+
+
+
   <div class="modal fade" id="modalContactForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
   aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-      <form method="POST" >
+      <form action='/contactPopup/' method="POST" >
           {% csrf_token %}
       <div class="modal-header text-center">
         <h4 class="modal-title w-100 font-weight-bold">Write to us</h4>
@@ -96,21 +99,24 @@
         <div class="md-form mb-5">
           <label data-error="wrong" data-success="right" for="form29"><strong>Your email:</strong></label>
           <i class="fas fa-envelope prefix grey-text"></i>
-          <input type="email" id="from_email" class="form-control validate">
-
+          <input type="email" id="id_from_email" class="form-control validate">
+          <input name="{{ form.ContactForm.email }}" type="text" placeholder="Name field">
         </div>
 
         <div class="md-form mb-5">
 
           <label data-error="wrong" data-success="right" for="form32"><strong>Subject:</strong></label>
           <i class="fas fa-tag prefix grey-text"></i>
-          <input type="text" id="subject" class="form-control validate">
+          <input type="text" id="id_subject" class="form-control validate">
+          <input name="{{ form.ContactForm.subject }}" type="text" placeholder="Name field">
         </div>
 
         <div class="md-form">
           <label data-error="wrong" data-success="right" for="form8"><strong>Your Message:</strong></label>
           <i class="fas fa-pencil prefix grey-text"></i>
-          <textarea type="text" id="message" class="md-textarea form-control" rows="4"></textarea>
+
+          <textarea type="text" id="id_message" class="md-textarea form-control" rows="4"></textarea>
+          <textarea name="{{ form.ContactForm.message }}" type="text" placeholder="Name field"></textarea>
         </div>
 
       </div>

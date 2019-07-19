@@ -13,7 +13,7 @@ urlpatterns = [
     path("about/", views.about,name="about"),
     path("contact/", views.contact,name="contact"),
     path("success/", views.successView,name="success"),
- 
+    path("contactPopup/", views.contactPopup,name="contactPopup"),
     path("process/", views.process,name="process"),
     path("aboutSicily/", views.aboutSicily,name="aboutSicily"),
      url(r'^properties/$', views.propertyList, name='propertyList'),
