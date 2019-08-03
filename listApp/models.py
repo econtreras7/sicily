@@ -17,13 +17,13 @@ PROPERTY_STATUS =(
 )
 class Property(models.Model):
     
-    title = models.CharField(max_length=20,default='Title')
+    title = models.CharField(max_length=100,default='Title')
     propertyStatus=models.CharField(max_length=10,choices=PROPERTY_STATUS,default='FOR SALE')
     details = models.TextField(default='Details')
     mainDetails =models.TextField(default='Main Details')
     reference = models.CharField(max_length=10,default='Reference')
     price = MoneyField(decimal_places=0,max_digits=10,default=0,default_currency='EUR')
-    propertyType = models.CharField(max_length=10,default='Property Type')
+    propertyType = models.CharField(max_length=100,default='Property Type')
     bedrooms = models.IntegerField(default=0)
     bathrooms = models.IntegerField(default=0)
     sqmt = models.IntegerField(default=0)
