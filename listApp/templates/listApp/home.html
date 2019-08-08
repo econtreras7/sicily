@@ -9,28 +9,6 @@ Home
 <!--<link href="{% static 'listApp/css/home.css' %}" rel="stylesheet">-->
 <link href="{% static 'css/home.css' %}" rel="stylesheet">
 
-<header class="masthead header-margin">
-  <div class="container h-100">
-    <div class="row h-100 align-items-center">
-      <div class="col-12 text-center">
-          <div class="input-group mb-3 justify-content-center">
-            <form method="GET" action="" id="homeSearchForm">
-              <input size="70" type="text" name="mainSearch" value="{{request.GET.mainSearch}}" class="form-control" placeholder="Search Our Properties" aria-label="Recipient's username" aria-describedby="basic-addon2">
-            </form>
-              <div class="input-group-append">
-                <button class="btn btn-primary" type="button">Search</button>
-              </div>
-              
-            </div>
-      </div>
-    </div>
-  </div>
-</header>
-
-
-
-
-
 <nav class="navbar fixed-top navbar-expand-lg navbar-light " style="background-color:#851a32;">
 
   <a class="navbar-brand" href="/"><img src="{% static 'WebImages/logo.png' %}" width="200" height="40"></img></a>
@@ -60,6 +38,31 @@ Home
     </ul>
   </div>
 </nav>
+
+
+
+<header class="masthead">
+  <div class="container h-100">
+    <div class="row h-100 align-items-center">
+      <div class="col-12 text-center">
+          <div class="input-group mb-3 justify-content-center">
+            <form method="GET" action="" id="homeSearchForm">
+              <input size="70" type="text" name="mainSearch" value="{{request.GET.mainSearch}}" class="form-control" placeholder="Search Our Properties" aria-label="Recipient's username" aria-describedby="basic-addon2">
+            </form>
+              <div class="input-group-append">
+                <button class="btn btn-primary" type="button">Search</button>
+              </div>
+              
+            </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+
+
+
 
 
 
