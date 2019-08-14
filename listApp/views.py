@@ -79,8 +79,9 @@ def about(request):
     return render(request, "listApp/about.html")
 
 def contact(request):
+    
     if request.method == 'GET':
-        form = ContactForm()
+        form = ContactForm()  
     else:
         form = ContactForm(request.POST)
         if form.is_valid():

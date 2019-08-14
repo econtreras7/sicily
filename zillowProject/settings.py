@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'django_filters',
     'widget_tweaks',
     'crispy_forms',
+    'bootstrap_modal_forms',
     #'sendgrid_backend',
 
 ]
