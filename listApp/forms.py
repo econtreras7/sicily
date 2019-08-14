@@ -7,7 +7,7 @@ class ContactForm(forms.Form):
     message = forms.CharField(widget=forms.Textarea, required=True)
 
 
-class BookForm(BSModalForm):
-    class Meta:
-        model = Book
-        fields = ['title', 'author', 'price']
+#class BookForm(BSModalForm):
+#    class Meta:
+#        model = Book
+#        fields = ['title', 'author', 'price']
