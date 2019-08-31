@@ -119,7 +119,7 @@ if DEBUG:
     #DATABASES = { 'default': dj_database_url.config() }
 else:
     DATABASES = { 'default': dj_database_url.config() }
-}
+
 
 
 
