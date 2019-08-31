@@ -118,15 +118,7 @@ if DEBUG:
 }
     #DATABASES = { 'default': dj_database_url.config() }
 else:
-    DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': config('DATABASE_NAME_PRO'),
-        'USER': config('DATABASE_USER_PRO'),
-        'PASSWORD': config('DATABASE_PASSWORD_PRO'),
-        'HOST': config('DATABASE_HOST_PRO'),
-        'PORT': config('DATABASE_PORT_PRO'),
-    }
+    DATABASES = { 'default': dj_database_url.config() }
 }
 
 
