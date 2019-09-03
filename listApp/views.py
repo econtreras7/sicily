@@ -11,6 +11,11 @@ from django.core.mail import send_mail, BadHeaderError
 from django.contrib import messages
 from decouple import config
 from .filters import propertyFilter
+from django.views.decorators.csrf import csrf_protect
+from django.template import RequestContext,Template
+import json
+from django.views.decorators.csrf import ensure_csrf_cookie
+from django.shortcuts import render_to_response
 #from django.views.generic import DetailView
 
 # Create your views here.
@@ -100,19 +105,23 @@ def contact(request):
 
 def successView(request):
     return HttpResponse('Success! Thank you for your message.')
-def contactPopup(request):
-    #form = ContactForm()
-   # print('ERROR: ',form.errors)
-    if request.method == 'POST':
-        form = ContactForm(request.POST)
-        print('ERROR: ',form.errors)
-        if form.is_valid():
-            print('VALID')
 
-        print('postingjndkjnsc')
-        return HttpResponse('POST')
-    else:
-        return HttpResponse('Success! Thank you for your message.') 
+def contactPopup(request):
+    email = request.POST.get("email","")
+    subject = request.POST.get("subject","")
+    message = request.POST.get("message","")
+    print("HEY")
+    print("Email"+ email)
+    print("Subject"+subject)
+    print("Message"+message)
+    
+    try:
+        send_mail(subject, message, email, [config('EMAIL_RECIPIENT')])
+    except BadHeaderError:
+        return HttpResponse('Invalid header found.')
+    messages.success(request,'Success Your Email has been sent!')
+    return HttpResponse("HEY")
+  
 
 
 

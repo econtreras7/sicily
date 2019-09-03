@@ -1,4 +1,4 @@
-<form action='' method="POST" >
+<form id="contact-form"  onsubmit="return false;" >
     {% csrf_token %}
 <div class="modal-header text-center">
   <h4 class="modal-title w-100 font-weight-bold">Write to us</h4>
@@ -8,35 +8,25 @@
 </div>
 <div class="modal-body mx-3">
     
-  <!--
-  <div class="md-form mb-5">
-    <label data-error="wrong" data-success="right" for="form34"><strong>Your name:</strong></label>
-    <i class="fas fa-user prefix grey-text"></i>
-   <input type="text" id="form34" class="form-control validate">
-    
-  </div>
---> 
+
   <div class="md-form mb-5">
     <label data-error="wrong" data-success="right" for="form29"><strong>Your email:</strong></label>
     <i class="fas fa-envelope prefix grey-text"></i>
-    <input type="email" id="id_from_email" class="form-control validate">
-    <input name="{{ form.ContactForm.email }}" type="text" placeholder="Name field">
+    <input type="email" id="pop_email" class="form-control validate">
   </div>
 
   <div class="md-form mb-5">
 
     <label data-error="wrong" data-success="right" for="form32"><strong>Subject:</strong></label>
-    <i class="fas fa-tag prefix grey-text"></i>s
-    <input type="text" id="id_subject" class="form-control validate">
-    <input name="{{ form.ContactForm.subject }}" type="text" placeholder="Name field">
+    <i class="fas fa-tag prefix grey-text"></i>
+    <input type="text" id="pop_subject" class="form-control validate">
   </div>
 
   <div class="md-form">
     <label data-error="wrong" data-success="right" for="form8"><strong>Your Message:</strong></label>
     <i class="fas fa-pencil prefix grey-text"></i>
 
-    <textarea type="text" id="id_message" class="md-textarea form-control" rows="4"></textarea>
-    <textarea name="{{ form.ContactForm.message }}" type="text" placeholder="Name field"></textarea>
+    <textarea type="text" id="pop_message" class="md-textarea form-control" rows="4"></textarea>
   </div>
 
 </div>

@@ -172,6 +172,14 @@ if DEBUG:
     STATIC_URL = '/static/'
     STATIC_ROOT = os.path.join(BASE_DIR, 'static_collected')
     
+    #EMAIL_BACKEND = "sgbackend.SendGridBackend"
+    
+    EMAIL_HOST = 'smtp.sendgrid.net'
+    EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+    EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+    EMAIL_PORT = 587
+    #SENDGRID_API_KEY = config('SENDGRID_API_KEY')
+    #EMAIL_USE_TLS = True
 else:
     EMAIL_BACKEND = "sgbackend.SendGridBackend"
     

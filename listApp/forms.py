@@ -5,6 +5,13 @@ class ContactForm(forms.Form):
     from_email = forms.EmailField(required=True)
     subject = forms.CharField(required=True)
     message = forms.CharField(widget=forms.Textarea, required=True)
+class contactPopup():
+  class Meta:
+    fields =['email','subject','message']
+    
+
+
+
 
 
 #class BookForm(BSModalForm):
