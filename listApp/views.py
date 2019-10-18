@@ -34,11 +34,9 @@ from django.db.models.functions import Cast,StrIndex, Substr
 
 def propertyList(request):
     
-    #property_list = Property.objects.all().order_by('reference')#one that works
+    property_list = Property.objects.all().order_by('reference')#one that works
     #property_list = Property.objects.annotate(rr=Substr('reference',2)).order_by('rr')
-    property_list = Property.objects.annotate(
-        shID=Cast(Substr("reference", 3), IntegerField())
-    ).order_by("-shID")
+    #property_list = Property.objects.annotate(shID=Cast(Substr("reference", 3), IntegerField())).order_by("-shID")
 
 
 
