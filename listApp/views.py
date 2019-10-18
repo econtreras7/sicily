@@ -16,6 +16,12 @@ from django.template import RequestContext,Template
 import json
 from django.views.decorators.csrf import ensure_csrf_cookie
 from django.shortcuts import render_to_response
+from django.core.paginator import Paginator
+from django.contrib.postgres.search import SearchVector
+from django.db.models.functions import Substr
+from django.db.models import IntegerField, Value as V
+from django.db.models.functions import Cast,StrIndex, Substr
+
 #from django.views.generic import DetailView
 
 # Create your views here.
@@ -28,8 +34,20 @@ from django.shortcuts import render_to_response
 
 def propertyList(request):
     
-    property_list = Property.objects.all()
+    #property_list = Property.objects.all().order_by('reference')#one that works
+    #property_list = Property.objects.annotate(rr=Substr('reference',2)).order_by('rr')
+    property_list = Property.objects.annotate(
+        shID=Cast(Substr("reference", 3), IntegerField())
+    ).order_by("-shID")
+
+
+
+
+
+
+
     property_filter = propertyFilter(request.GET,queryset=property_list)
+    
     return render(request,'listApp/property_list.html',{'filter':property_filter})
 
 
@@ -67,6 +85,8 @@ def home(request):
         query = self.request.GET.get('mainSearch')
         if query:
             results =  Property.objects.filter(title__icontains=query)
+            #results=Property.objects.annotate(search=SearchVector('title','details'),).filter(search=query)
+
             print(results)
             return redirect(request,'listApp/propertylist.html',{'filter':results})
 

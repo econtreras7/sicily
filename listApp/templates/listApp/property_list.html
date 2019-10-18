@@ -22,7 +22,7 @@
         <a class="nav-link" href="/process">The Process</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/aboutSicily">About Sicily</a>
+        <a class="nav-link" href="/aboutSicily"> Sicily</a>
       </li>
       <li class="nav-item active">
         <a class="nav-link" href="/properties">Properties</a>
@@ -40,7 +40,7 @@
   <form method="GET" action=''>
       <div class="form-group col-md-4 ">
           <div class="row justify-content-center">
-          {% render_field filter.form.title class="form-control" placeholder="Search Properties" size="700" %}
+          {% render_field filter.form.reference class="form-control" placeholder="Search Properties" size="700" %}
           </div>
           
       </div>
@@ -59,12 +59,11 @@
           {% for propertyImage in property.images.all %}
           {% if forloop.first %}
 
-          <img class="card-img-top" src="{{ propertyImage.image.url }}" alt="Card image"
-            style="height:300px;  display: inline-block;">
+          <img class="card-img-top" src="{{ propertyImage.image.url }}" alt="Card image" style="height:300px;  display: inline-block;">
           {% endif %}
           {% endfor %}
           <div class="card-body">
-            <h5 class="card-title">{{ property.propertyStatus }}</h5>
+            <h5 class="card-title">{{property.title}}  - {{ property.propertyStatus }}</h5>
             <h4 class="card-title"><b>{{ property.price }}</b></h4>
             <p>•{{ property.bedrooms }}bds • {{ property.bathrooms }}ba • {{ property.sqmt }}sqmt</p>
           </div>
@@ -125,6 +124,23 @@
 
     </div>
     {% endfor %}
+    <div class="pagination">
+        <span class="step-links">
+            {% if filter.qs.has_previous %}
+                <a href="?page=1">&laquo; first</a>
+                <a href="?page={{ filter.qs.previous_page_number }}">previous</a>
+            {% endif %}
+    
+            <span class="current">
+                Page {{ filter.qs.number }} of {{ filter.qs.paginator.num_pages }}.
+            </span>
+    
+            {% if filter.qs.has_next %}
+                <a href="?page={{ filter.qs.next_page_number }}">next</a>
+                <a href="?page={{ filter.qs.paginator.num_pages }}">last &raquo;</a>
+            {% endif %}
+        </span>
+    </div>
   </div>
 
 
