@@ -15,7 +15,7 @@ docutils==0.15.2
 gunicorn==19.9.0
 jmespath==0.9.4
 packaging==19.2
-Pillow==6.2.0
+Pillow==8.1.1
 pip-review==1.0
 postgres==2.2.2
 psycopg2==2.8.3
