@@ -23,7 +23,7 @@ jmespath==0.9.4
 lazy-object-proxy==1.4.2
 mccabe==0.6.1
 packaging==19.0
-Pillow==6.0.0
+Pillow==9.0.1
 pip-review==1.0
 postgres==2.2.2
 psycopg2==2.7.7
